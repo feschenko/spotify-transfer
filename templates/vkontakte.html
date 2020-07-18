@@ -1,0 +1,24 @@
+<title>SpotiTransfer</title>
+<link rel="shortcut icon" href="/static/spotify-logo.png" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vkontakte.css')}}"/>
+
+<div id="spotify">
+    <div id="header">
+        <img src="/static/spotify-logo.png" alt="spotify logo" class="spotify-logo">
+        <h1 class="header-caption">SpotiTransfer</h1>
+    </div>
+    <div id="content">
+        <h1 class="content-caption">Нажмите на кнопку <b>"Перейти"</b> и нажмите <b>"Разрешить"</b>, после скопируйте токен и айди пользователя из адресной строки и введите в поля ниже.</h1>
+        <form action="{{ url_for('get_vk_token') }}" method="post">
+            <input type="text" placeholder="Введите токен" name="access_token" id="content-token">
+            <input type="text" placeholder="Введите айди" name="user_id" id="content-uid">
+            <button type="submit" class="content-submit">Подтвердить</button>
+        </form>
+
+        <a href="{{ auth }}" target="_blank">
+            <div class="vk-auth">
+                Перейти
+            </div>
+        </a>
+    </div>
+</div>

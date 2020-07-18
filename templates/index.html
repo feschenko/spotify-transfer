@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    const path = window.location.href;
+    if (path.split('#')[1]) {
+        window.location.href = 'http://localhost:5555/{{ network }}/callback?' + path.split('#')[1];
+    }
+</script>
+{% if network %}
+    {% if network == 'spotify' %}
+        <a href="/vkontakte"><h1>Get Vkontakte token</h1></a>
+    {% elif network == 'vkontakte' %}
+        <a href="https://oauth.vk.com/authorize?client_id=6146827&scope=1073737727&redirect_uri=https://oauth.vk.com/blank.html&display=page&response_type=token&revoke=1" target="_blank"><h1>Get Vkontakte token</h1></a>
+        <form action="{{ url_for('_get_code') }}" method="post">
+            <label for="token">Enter a token here<input type="text" name="access_token" id="token" placeholder="Enter a token"></label>
+            <label for="uid">Enter a user id here<input type="text" name="uid" id="uid" placeholder="Enter a user id"></label>
+            <button type="submit">Submit form</button>
+        </form>
+    {% endif %}
+{% endif %}
+</body>
+</html>

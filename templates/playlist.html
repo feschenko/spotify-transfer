@@ -1,0 +1,17 @@
+<title>SpotiTransfer</title>
+<link rel="shortcut icon" href="/static/spotify-logo.png" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css')}}"/>
+
+<div id="spotify">
+    <div id="header">
+        <img src="/static/spotify-logo.png" alt="spotify logo" class="spotify-logo">
+        <h1 class="header-caption">SpotiTransfer</h1>
+    </div>
+    <div id="content">
+        <a href="{{ playlist }}" target="_blank">
+            <div class="spotify-playlist">
+                Сгенерировать плейлист
+            </div>
+        </a>
+    </div>
+</div>

@@ -1,5 +1,6 @@
 from flask import Flask, request, redirect, render_template
 from modules import Spotify, Vkontakte, VK_AUTH_URL
+import random
 
 
 app = Flask(__name__)
@@ -48,5 +49,5 @@ def playlist():
 
 
 if __name__ == '__main__':
-    app.run(host='localhost', port=5555, debug=True)
+    app.run(host='0.0.0.0', port=random.randint(2000, 9000))
 

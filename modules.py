@@ -28,9 +28,9 @@ class Spotify:
             },
         )
         if response.json().get("error") is not None:
-            print(method)
-            print(url)
-            print(body)
+            # print(method)
+            # print(url)
+            # print(body)
             raise RuntimeError(response.json()["error"]["message"])
         return response
 
@@ -95,6 +95,11 @@ class Vkontakte:
             method, url=url, headers={"Content-Type": "application/json"}
         )
         return response
+
+    def set_data(self, link: str):
+        self.access_token = link.split("access_token=")[1].split("&")[0]
+        self.uid = link.split("user_id=")[1].split("&")[0]
+        return self.access_token, self.uid
 
     def get_tracks(self, offset: int):
         url = f"https://api.vk.com/method/audio.get.json?uid={self.uid}&access_token={self.access_token}&v=5.92&offset={offset}"

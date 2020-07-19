@@ -5,7 +5,7 @@ body {
 
 #spotify {
     width: 650px;
-    height: 1300px;
+    height: 1230px;
     background: #130f0f;
     border-radius: 50px;
     position: absolute;
@@ -40,7 +40,7 @@ body {
 
 #content {
     width: 650px;
-    height: 900px;
+    height: 830px;
     border-radius: 0 0 50px 50px;
     position: absolute;
     top: 400px;
@@ -50,7 +50,7 @@ body {
     color: white;
     width: 550px;
     position: absolute;
-    top: 100px;
+    top: 120px;
     left: 50px;
     text-align: center;
 }
@@ -104,6 +104,15 @@ input::placeholder {
     border: none;
     outline: 0;
     position: absolute;
-    top: 720px;
+    top: 620px;
     left: 120px;
+}
+
+.error {
+    color: white;
+    font-size: 30px;
+    position: absolute;
+    top: 735px;
+    left: 120px;
+    text-align: left;
 }

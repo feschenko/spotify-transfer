@@ -18,9 +18,18 @@ def generate_spotify_token():
     return redirect(spotify.generate_url())
 
 
-@app.route('/vkontakte', methods=['GET'])
+@app.route('/vkontakte', methods=['GET', 'POST'])
 def generate_vk_token():
-    return render_template('vkontakte.html', auth=VK_AUTH_URL)
+    error = False
+    if request.method == 'POST':
+        if request.form.get('link'):
+            if vk.set_data(request.form.get('link')):
+                return redirect('/playlist')
+            else:
+                error = 'Ссылка имеет неправильный формат'
+        else:
+            error = 'Вы не ввели ссылку'
+    return render_template('vkontakte.html', auth=VK_AUTH_URL, error=error)
 
 
 @app.route('/spotify/callback', methods=['GET'])
@@ -29,13 +38,6 @@ def get_spotify_token():
         spotify.token = request.args.get('access_token')
         return redirect('/vkontakte')
     return render_template('main.html')
-
-
-@app.route('/vkontakte/callback', methods=['GET', 'POST'])
-def get_vk_token():
-    if request.method == 'POST':
-        vk.access_token, vk.uid, = request.form.get('access_token'), request.form.get('uid')
-    return redirect('/playlist')
 
 
 @app.route('/playlist', methods=['GET'])

@@ -8,10 +8,9 @@
         <h1 class="header-caption">SpotiTransfer</h1>
     </div>
     <div id="content">
-        <h1 class="content-caption">Нажмите на кнопку <b>"Перейти"</b> и нажмите <b>"Разрешить"</b>, после скопируйте токен и айди пользователя из адресной строки и введите в поля ниже.</h1>
-        <form action="{{ url_for('get_vk_token') }}" method="post">
-            <input type="text" placeholder="Введите токен" name="access_token" id="content-token">
-            <input type="text" placeholder="Введите айди" name="user_id" id="content-uid">
+        <h1 class="content-caption">Нажмите на кнопку <b>"Перейти"</b> и нажмите <b>"Разрешить"</b>, после скопируйте ссылку и вставьте в поле ниже.</h1>
+        <form action="{{ url_for('generate_vk_token') }}" method="post">
+            <input type="text" placeholder="Вставьте ссылку" name="link" id="content-link">
             <button type="submit" class="content-submit">Подтвердить</button>
         </form>
 
@@ -20,5 +19,8 @@
                 Перейти
             </div>
         </a>
+        {% if error %}
+            <h1 class="error">{{ error }}</h1>
+        {% endif %}
     </div>
 </div>

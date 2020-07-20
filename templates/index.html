@@ -8,7 +8,7 @@
 <script>
     const path = window.location.href;
     if (path.split('#')[1]) {
-        window.location.href = 'http://localhost:5555/{{ network }}/callback?' + path.split('#')[1];
+        window.location.href = '{{ host }}?' + path.split('#')[1];
     }
 </script>
 {% if network %}

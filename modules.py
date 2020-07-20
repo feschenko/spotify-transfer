@@ -34,11 +34,10 @@ class Spotify:
             raise RuntimeError(response.json()["error"]["message"])
         return response
 
-    def generate_url(self):
-        url = "https://accounts.spotify.com/authorize"
+    def generate_url(self, host: str):
         return (
-            f"{url}?client_id={self.client_id}&response_type=token&redirect_uri="
-            f"http://localhost:5555/spotify/callback&scope=user-read-private%20playlist-modify-public%20playlist-"
+            f"https://accounts.spotify.com/authorize?client_id={self.client_id}&response_type=token&redirect_uri="
+            f"{host}/callback&scope=user-read-private%20playlist-modify-public%20playlist-"
             f"modify-private&state=34fFs29kd09"
         )
 

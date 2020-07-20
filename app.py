@@ -1,6 +1,5 @@
 from flask import Flask, request, redirect, render_template
 from modules import Spotify, Vkontakte, VK_AUTH_URL
-import random
 
 
 app = Flask(__name__)
@@ -11,12 +10,12 @@ vk = Vkontakte()
 
 @app.route('/', methods=['GET'])
 def main():
-    return render_template('main.html')
+    return render_template('main.html', host=request.url_root)
 
 
 @app.route('/spotify', methods=['GET'])
 def generate_spotify_token():
-    return redirect(spotify.generate_url())
+    return redirect(spotify.generate_url(request.base_url))
 
 
 @app.route('/vkontakte', methods=['GET', 'POST'])
@@ -49,5 +48,5 @@ def playlist():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=random.randint(2000, 9000))
+    app.run(host='0.0.0.0', port=5555)
 

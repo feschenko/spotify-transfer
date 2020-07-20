@@ -38,7 +38,7 @@ def get_spotify_token():
     if request.args.get('access_token'):
         spotify.token = request.args.get('access_token')
         return redirect('/vkontakte')
-    return render_template('main.html')
+    return render_template('main.html', host=request.url_root)
 
 
 @app.route('/playlist', methods=['GET'])

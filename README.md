@@ -5,18 +5,18 @@
 
 # Installation
 
-##### Clone repository
+###### Clone repository
 ```bash
 $ git clone https://github.com/xcaq/SpotiTransfer.git
 ```
 
-##### Go to "SpotiTransfer" folder
+###### Go to "SpotiTransfer" folder
 ```bash
 $ cd SpotiTransfer
 ```
 
 # Usage
-##### Start the app and go to url that was printed in the console OR run this code in repl.it using "Run on Repl. it" badge at left upper corner.
+###### Start the app and go to url that was printed in the console OR run this code in repl.it using "Run on Repl. it" badge at left upper corner.
 ```bash
 $ python3 app.py
 ```
